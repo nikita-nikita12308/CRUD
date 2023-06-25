@@ -21,4 +21,4 @@ const app = new App().app
 
 app.listen(port, () => {
     console.log("Server listening on port")
-})
+});
