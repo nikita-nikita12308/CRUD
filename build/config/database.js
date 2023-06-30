@@ -54,7 +54,7 @@ class Database {
                 port: this.POSTGRES_PORT,
                 dialect: "postgres"
             });
-            this.sequelize.authenticate().then(() => {
+            yield this.sequelize.authenticate().then(() => {
                 console.log("✔️ PostgreSQL connected");
             }).catch((err) => {
                 console.log("❌ Unable to connect PostgreSQL", err);
