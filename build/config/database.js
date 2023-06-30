@@ -32,8 +32,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const sequelize_1 = require("sequelize");
+const sequelize_typescript_1 = require("sequelize-typescript");
 const dotenv = __importStar(require("dotenv"));
+const Note_1 = require("../model/Note");
 dotenv.config();
 class Database {
     constructor() {
@@ -41,23 +42,28 @@ class Database {
         this.POSTGRES_HOST = process.env.POSTGRES_HOST;
         this.POSTGRES_PORT = process.env.POSTGRES_PORT;
         this.POSTGRES_USER = process.env.POSTGRES_USER;
-        this.POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD;
-        this.connectToPosgreSQL();
+        this.POSTGRES_PASSWORD = process.env
+            .POSTGRES_PASSWORD;
+        this.connectToPostgreSQL();
     }
-    connectToPosgreSQL() {
+    connectToPostgreSQL() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.sequelize = new sequelize_1.Sequelize({
+            this.sequelize = new sequelize_typescript_1.Sequelize({
                 database: this.POSTGRES_DB,
                 username: this.POSTGRES_USER,
                 password: this.POSTGRES_PASSWORD,
                 host: this.POSTGRES_HOST,
                 port: this.POSTGRES_PORT,
-                dialect: "postgres"
+                dialect: "postgres",
+                models: [Note_1.Note]
             });
-            yield this.sequelize.authenticate().then(() => {
-                console.log("✔️ PostgreSQL connected");
-            }).catch((err) => {
-                console.log("❌ Unable to connect PostgreSQL", err);
+            yield this.sequelize
+                .authenticate()
+                .then(() => {
+                console.log("✅ PostgreSQL Connection has been established successfully.");
+            })
+                .catch((err) => {
+                console.error("❌ Unable to connect to the PostgreSQL database:", err);
             });
         });
     }

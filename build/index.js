@@ -9,6 +9,7 @@ class App {
     constructor() {
         this.app = (0, express_1.default)();
         this.routes();
+        this.databaseSync();
     }
     databaseSync() {
         var _a;
