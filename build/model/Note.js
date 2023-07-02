@@ -17,7 +17,7 @@ let Note = exports.Note = Note_1 = class Note extends sequelize_typescript_1.Mod
 Note.NOTE_TABLE_NAME = "note";
 Note.NOTE_ID = "id";
 Note.NOTE_NAME = "name";
-Note.NOTE_DESCRIPTION = "note";
+Note.NOTE_DESCRIPTION = "description";
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.INTEGER,

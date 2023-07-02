@@ -8,7 +8,7 @@ export class Note extends Model{
     public static NOTE_TABLE_NAME = "note" as string;
     public static NOTE_ID = "id" as string;
     public static NOTE_NAME = "name" as string;
-    public static NOTE_DESCRIPTION = "note" as string;
+    public static NOTE_DESCRIPTION = "description" as string;
 
     @Column({
         type: DataType.INTEGER,

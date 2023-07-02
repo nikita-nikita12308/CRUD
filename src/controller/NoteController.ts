@@ -43,7 +43,7 @@ class NoteController{
         try{
             const new_note = await new NoteRepo().retrieveAll()
             res.status(201).json({
-                status: "Created!",
+                status: "OK!",
                 message: "Succesffuly fetched all note data!",
                 data: new_note
             })
@@ -94,3 +94,5 @@ class NoteController{
         }
     }
 }
+
+export default new NoteController();
