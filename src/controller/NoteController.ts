@@ -16,10 +16,10 @@ class NoteController{
                 status: "Created!",
                 message: "Succesffuly created note!"
             })
-        }catch(err){
+        }catch(err: any){
             res.status(500).json({
                 status: "Internal Server Error!",
-                message: "Internal Server Error!"
+                message: err.message 
             })
         }
     }
@@ -42,7 +42,7 @@ class NoteController{
     async findAll(req:Request, res:Response){
         try{
             const new_note = await new NoteRepo().retrieveAll()
-            res.status(201).json({
+            res.status(200).json({
                 status: "OK!",
                 message: "Succesffuly fetched all note data!",
                 data: new_note

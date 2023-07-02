@@ -13,5 +13,5 @@ exports.updateNoteSchema = zod_1.z.object({
     body: zod_1.z.object({
         name: zod_1.z.string().min(1, { message: "Name must be greater than 1 characters!" }),
         description: zod_1.z.string().min(4, { message: "Description must be greater than 4 characters!" })
-    })
+    }).partial(),
 });

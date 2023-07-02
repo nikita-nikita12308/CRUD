@@ -27,7 +27,7 @@ class NoteController {
             catch (err) {
                 res.status(500).json({
                     status: "Internal Server Error!",
-                    message: "Internal Server Error!"
+                    message: err.message
                 });
             }
         });
@@ -54,7 +54,7 @@ class NoteController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const new_note = yield new NoteRepo_1.NoteRepo().retrieveAll();
-                res.status(201).json({
+                res.status(200).json({
                     status: "OK!",
                     message: "Succesffuly fetched all note data!",
                     data: new_note

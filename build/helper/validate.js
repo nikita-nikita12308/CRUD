@@ -16,13 +16,14 @@ const validate = (schema) => (req, res, next) => __awaiter(void 0, void 0, void 
             query: req.query,
             params: req.params,
         });
+        console.log("REQ.BODY => " + req.body);
         return next();
     }
     catch (err) {
         const error_message = JSON.parse(err.message);
         return res.status(400).json({
             status: "Bad Request!",
-            message: error_message,
+            message: err
         });
     }
 });

@@ -9,6 +9,7 @@ const NoteRouter_1 = __importDefault(require("./router/NoteRouter"));
 class App {
     constructor() {
         this.app = (0, express_1.default)();
+        this.plugins();
         this.routes();
         this.databaseSync();
     }
